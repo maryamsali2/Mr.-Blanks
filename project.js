@@ -43,3 +43,13 @@ hintEl.textContent = levels[level].clue
 
 
 
+// Event Listeners
+
+//all the buttons in a loop
+let buttons=document.querySelectorAll('button')
+for(let i=0;i<=buttons.length;i++){
+    buttons[i].addEventListener('click',()=>{
+
+        console.log("clicked")
+    })
+}
