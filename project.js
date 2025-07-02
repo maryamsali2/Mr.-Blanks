@@ -27,7 +27,8 @@ const hintEl = document.querySelector("#hint")
 let level = 0;
 hintEl.textContent = levels[level].clue
 
-// in this step were adding the blanks 
+
+
 //string statment
 
 //for the 1st clue
