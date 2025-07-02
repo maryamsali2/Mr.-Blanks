@@ -35,5 +35,11 @@ hintEl.textContent = levels[level].clue
  const nm1 = string.split("")
  console.log(nm1);
 
+ //for the 2nd clue
+  const str = "Keyboard" 
+ const chars = str.split("")
+ console.log(chars);
+// Functions
+
 
 
