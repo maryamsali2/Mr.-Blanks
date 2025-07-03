@@ -41,7 +41,16 @@ hintEl.textContent = levels[level].clue
  const chars = str.split("")
  console.log(chars);
 // Functions
+const blanksContainer = document.getElementById("blanks")
 
+let blankSpans = [] // Store spans to update later
+
+for (let i = 0; i < word.length; i++) {
+  const span = document.createElement("span")
+  span.textContent = "_"
+  blanksContainer.appendChild(span)
+  blankSpans.push(span)
+}
 
 
 // Event Listeners
