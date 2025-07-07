@@ -9,6 +9,7 @@ let winner = false
 let blanks
 let chosenWord
 let splitWord
+let maxAttempts = 7
 
 let levels = [
     {
@@ -43,8 +44,20 @@ const createSpans = () => {
     })        
 }
 
+//in this point what were doing it that every time the player add a wrong letter the  it will take from the health bar
+function reduceHealth() {
+  maxAttempts--
+  const healthBar = document.getElementById("health-bar")
+  const healthPercent = (maxAttempts / 7) * 100
+  healthBar.style.width = healthPercent + "%"
+
+  if (maxAttempts === 0) {
+    gameEnd(false)
+  }
+}   
+
 //const matchLetter = () => {
-  const matchLetter = () => {
+ const matchLetter = () => {
     const clickedLetter = event.target.innerText;
 
     if (splitWord.includes(clickedLetter)) {
@@ -52,7 +65,7 @@ const createSpans = () => {
             return;
         } else {
             correctLetters.push(clickedLetter);
-            updateDisplay(); // showing the correct letters  ✅ 
+            updateDisplay();
         }
         console.log("correct letters", correctLetters);
     } else {
@@ -60,10 +73,13 @@ const createSpans = () => {
             return;
         } else {
             wrongLetters.push(clickedLetter);
+            reduceHealth(); // it reduct the health line bar ✅
         }
         console.log("wrong letters:", wrongLetters);
     }
-};
+}
+
+
 
     //this my old answer for the match letter
     // for loop through all of the letters in chosenWord to check if the event.target.innerText matches the letter
@@ -86,6 +102,9 @@ const createSpans = () => {
     //if statment 
     //checkAnswer()
 //} 
+
+
+
 
 const updateDisplay = () => {
     splitWord.forEach((letter, index) => {
