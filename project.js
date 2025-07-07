@@ -4,7 +4,7 @@
 let clue = 0 //for changing the hint on every level
 let wrongLetters = [] //it will save the wrong guessed letters if the player add it more than one time
 let correctLetters = []
-let level = 0
+let level = 1
 let winner = false
 let blanks
 let chosenWord
@@ -13,10 +13,10 @@ let splitWord
 let levels = [
     {
         word : "CAR",
-        clue : "I have no voice, yet I carry knowledge 🤫.  I have no mind, yet I make yours grow. 🧠You turn me inside out, yet I do not feel. 🔄I dress in colors, but I have no skin. 🎨 You seek me in silence, and I always answer. 🌌Who am I?"
+        clue : "I have a heart that never loves, yet it keeps me going. ❤️I bleed, but it's not blood. 🛢️I breathe through filters, not lungs. 🫁Who am I??"
     },
     {
-        word : "Keyboard",
+        word : "KEYBOARD",
         clue : " 🗝 I have keys but open no locks.🚀 I have space but no room.🚪 You can enter, but I’m not a door.🤔 What am I?"
     }
 ]// im going to add more arrays but just two clues so ill know how every thing is going to be when it start working 
@@ -43,30 +43,61 @@ const createSpans = () => {
     })        
 }
 
-const matchLetter = () => {
-    // for loop through all of the letters in chosenWord to check if the event.target.innerText matches the letter
-    if (splitWord.includes(event.target.innerText)) {
-        if (correctLetters.includes(event.target.innerText)){
-            return
-        }else{
-            correctLetters.push(event.target.innerText)
-        }    
-        console.log("correct letters", correctLetters)
-    } else {
-        if (wrongLetters.includes(event.target.innerText)) {
-            return
+//const matchLetter = () => {
+  const matchLetter = () => {
+    const clickedLetter = event.target.innerText;
+
+    if (splitWord.includes(clickedLetter)) {
+        if (correctLetters.includes(clickedLetter)) {
+            return;
         } else {
-            wrongLetters.push(event.target.innerText)
+            correctLetters.push(clickedLetter);
+            updateDisplay(); // ✅ تظهر الحروف الصح
         }
-        console.log("wrong letters:", wrongLetters)
+        console.log("correct letters", correctLetters);
+    } else {
+        if (wrongLetters.includes(clickedLetter)) {
+            return;
+        } else {
+            wrongLetters.push(clickedLetter);
+        }
+        console.log("wrong letters:", wrongLetters);
     }
-    updateDisplay()
-    checkAnswer()
-} 
+};
+
+    //this my old answer for the match letter
+    // for loop through all of the letters in chosenWord to check if the event.target.innerText matches the letter
+    //if (splitWord.includes(event.target.innerText)) {
+      //  if (correctLetters.includes(event.target.innerText)){
+        //    return
+        //}else{
+          //  correctLetters.push(event.target.innerText)
+        //}    
+        //console.log("correct letters", correctLetters)
+   // } else {
+     //   if (wrongLetters.includes(event.target.innerText)) {
+           // return
+       // } else {
+         //   wrongLetters.push(event.target.innerText)
+        //}
+        //console.log("wrong letters:", wrongLetters)
+    //}
+    //updateDisplay()
+    //if statment 
+    //checkAnswer()
+//} 
 
 const updateDisplay = () => {
-    // /use the divs stored in blankSpaces
+    splitWord.forEach((letter, index) => {
+        if (correctLetters.includes(letter)) {
+            blankSpaces[index].textContent = letter
+        } else {
+            blankSpaces[index].textContent = "_"
+        }
+    })
 }
+    // /use the divs stored in blankSpaces
+
 
 const checkAnswer = () => {
     let answer = new Array(correctLetters)
@@ -87,7 +118,16 @@ const checkAnswer = () => {
 }
 
 const gameEnd = () => {
+const gameEnd = (didWin) => {
+    if (didWin) {
+        alert("🎉 You saved Mr. Blank!")
+    } else {
+        alert(`💀 Game Over! The word was "${chosenWord}"`)
+    }
 
+    // Disable all buttons
+    buttons.forEach(btn => btn.disabled = true)
+}
 }
 
 // Event Listeners
