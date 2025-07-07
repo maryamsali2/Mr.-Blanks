@@ -52,7 +52,7 @@ const createSpans = () => {
             return;
         } else {
             correctLetters.push(clickedLetter);
-            updateDisplay(); // ✅ تظهر الحروف الصح
+            updateDisplay(); // showing the correct letters  ✅ 
         }
         console.log("correct letters", correctLetters);
     } else {
