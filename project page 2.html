@@ -1,73 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="project.js"></script>
-    <link rel="stylesheet" href="style2.css" />
-    <title>Mr.Blanks Game</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script defer src="project.js"></script>
+  <link rel="stylesheet" href="style2.css" />
+  <title>Mr. Blanks Game</title>
 </head>
+
 <body>
-    <h2> ⚠️ Mr. Blanks is in danger — and only you can save him! 🕵️‍♂️💥 </h2>
+  <h2>⚠️ Mr. Blanks is in danger — and only you can save him! 🕵️‍♂️💥</h2>
 
-     <h3 id ="hint"></h3>
-     <div id ="blanks"></div>
-    <!-- here i did write the letters same as the keyboard arangement-->
-     
-    <section id = "letters-container">
-        <!-- from Q to P-->
-        <div class = "row row1">
-            <button>Q</button>
-            <button>W</button>
-            <button>E</button>
-            <button>R</button>
-            <button>T</button>
-            <button>Y</button>
-            <button>U</button>
-            <button>I</button>
-            <button>O</button>
-            <button>P</button>
-        </div>
+  <h3 id="hint"></h3>
+  <div id="blanks"></div>
 
-        <!--from A to L-->
-        <div class="row row2">
-            <button>A</button>
-            <button>S</button>
-            <button>D</button>
-            <button>F</button>
-            <button>G</button>
-            <button>H</button>
-            <button>J</button>
-            <button>K</button>
-            <button>L</button>
-        </div>
+  <section id="letters-container">
+    <div class="row row1">
+      <button>Q</button>
+      <button>W</button>
+      <button>E</button>
+      <button>R</button>
+      <button>T</button>
+      <button>Y</button>
+      <button>U</button>
+      <button>I</button>
+      <button>O</button>
+      <button>P</button>
+    </div>
+    <div class="row row2">
+      <button>A</button>
+      <button>S</button>
+      <button>D</button>
+      <button>F</button>
+      <button>G</button>
+      <button>H</button>
+      <button>J</button>
+      <button>K</button>
+      <button>L</button>
+    </div>
+    <div class="row row3">
+      <button>Z</button>
+      <button>X</button>
+      <button>C</button>
+      <button>V</button>
+      <button>B</button>
+      <button>N</button>
+      <button>M</button>
+    </div>
+  </section>
 
-        <!--from Z to M-->
-        <div class = "row row3">
-            <button>Z</button>
-            <button>X</button>
-            <button>C</button>
-            <button>V</button>
-            <button>B</button>
-            <button>N</button>
-            <button>M</button>
-        </div>
-    </section>
-
-    <!--the healt bar is like a line and when u get a  wrong word u lose some of the player health -->
-     <div id="health-bar-container">
+  <div id="health-bar-container">
     <div id="health-bar"></div>
-</div>
-    
-  
+  </div>
 
-    <!--adding a section for play again button-->
-    <!--adding a section for the next level button-->
-    <div id="bottom-buttons">
-  <button id="play-again">🔁 Play Again</button>
-  <button id="next-level">🔓 Next Level</button>
+ <!-- Game Over Video -->
+<div id="gameOverContainer" style="display: none; justify-content: center; margin-top: 40px;">
+  <video id="game-over-video" width="600" height="340" controls style="border-radius: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.3);">
+    <source src="gameOver.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 </div>
-    
 
+ 
+
+<div id="videoContainer" style="display: none; justify-content: center; margin-top: 40px;">
+    <video id="winVideo" width="600" height="340" controls style="border-radius: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.3);">
+      <source src="winning.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <h2 id="win-caption" style="display: none; font-size: 24px; color: #6c5ce7; text-align: center; margin-bottom: 20px;">
+    POV: Your inner voice after getting all the letters right 😎🧠
+  </h2>
+
+  <button id="retry-btn" style="display: none; position: fixed; top: 70%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; padding: 10px 20px; z-index: 1000;">
+    🔁 Retry
+  </button>
 </body>
 </html>

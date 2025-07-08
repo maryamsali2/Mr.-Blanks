@@ -1,44 +1,48 @@
-/* Centering the page and setting global font */
+/* === Global Body Styling === */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;  /* start content from top */
+  justify-content: flex-start;
   min-height: 100vh;
-  padding-top: 100px; /* space from top */
-  font-family: sans-serif;
-  background-color: #fefefe; /* light background color */
+  padding-top: 100px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  color: #333;
 }
 
-/* Hint section styling */
+/* === Hint Text === */
 #hint {
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
   margin-top: 20px;
   font-weight: 600;
+  color: #4a4a4a;
+  max-width: 80%;
 }
 
-/* Word blanks styling (centered and spaced) */
+/* === Word Blanks === */
 #blanks {
   display: flex;
   justify-content: center;
-  gap: 10px; /* space between letters */
-  font-size: 28px;
-  margin: 20px 0;
+  gap: 12px;
+  font-size: 30px;
+  margin: 25px 0;
   font-weight: bold;
+  letter-spacing: 4px;
+  color: #2c3e50;
 }
 
-/* Keyboard rows styling */
+/* === Keyboard Rows === */
 #keyboard-row-1,
 #keyboard-row-2,
 #keyboard-row-3 {
   display: flex;
   justify-content: center;
-  gap: 10px; /* space between keys */
+  gap: 10px;
   margin-top: 10px;
 }
 
-/* Shifting rows to mimic real keyboard layout */
 #keyboard-row-2 {
   margin-left: 30px;
 }
@@ -47,82 +51,83 @@ body {
   margin-left: 60px;
 }
 
-/* Keyboard button styles */
-#keyboard button {
+/* === Keyboard Buttons === */
+#keyboard button,
+#letters-container button {
   margin: 4px;
-  padding: 12px 16px;
-  font-size: 16px;
-  border: 1px solid #555;
-  background-color: #f2f2f2;
-  border-radius: 6px;
+  padding: 14px 18px;
+  font-size: 18px;
+  border: 2px solid #6c5ce7;
+  background-color: #dfe6e9;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  color: #2d3436;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
 }
 
-#keyboard button:hover {
-  background-color: #ddd;
+#keyboard button:hover,
+#letters-container button:hover {
+  background-color: #a29bfe;
+  color: white;
+  transform: scale(1.05);
 }
 
-/* Health bar container */
+/* === Health Bar === */
 #health-bar-container {
   width: 80%;
-  height: 10px;
-  background-color: #ddd;
-  border-radius: 5px;
+  height: 12px;
+  background-color: #dcdde1;
+  border-radius: 6px;
   margin: 30px 0;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
 }
 
-/* Health bar fill */
 #health-bar {
   width: 100%;
   height: 100%;
-  background-color: #e60000; /* bright red */
-  border-radius: 5px;
-  transition: width 0.3s ease;
-}
-
-/* Play again button positioned bottom left */
-#play\ again {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-}
-
-/* Next level button positioned bottom right */
-#Next\ Level {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-}
-
-/* Bottom button container if needed */
-#bottom-buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin-top: 20px;
-}
-
-/* Fix container name with escape for space in id (if used) */
-#Letters\ container {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-#Letters\ container button {
-  margin: 4px;
-  padding: 10px 14px;
-  font-size: 16px;
-  border: 1px solid #333;
+  background-color: #e74c3c;
   border-radius: 6px;
-  background-color: #f0f0f0;
-  cursor: pointer;
+  transition: width 0.3s ease-in-out;
 }
 
-#letters-container \button:hover {
-  background-color: #ddd;
+/* === Retry Button === */
+#retry-btn {
+  position: fixed;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  padding: 14px 28px;
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+}
+
+#retry-btn:hover {
+  background-color: #5e54c7;
+}
+
+/* === Game Over & Win Video === */
+#game-over-video,
+#win-video {
+  display: none;
+  width: 600px;
+  height: 340px;
+  margin: 50px auto;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+  z-index: 999;
+}
+#videoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
 }
