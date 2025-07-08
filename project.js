@@ -105,13 +105,13 @@
 //         correctLetters.push(letter);
 //       }
 //     });
-// //     const video = document.getElementById("game-over-video");
-// // video.onplay = () => {
-// //   console.log("🎥 Game Over video is playing.");
-// // };
-// // video.onerror = () => {
-// //   console.error("❌ Error loading Game Over video.");
-// // };
+//     const video = document.getElementById("game-over-video");
+// video.onplay = () => {
+//   console.log("🎥 Game Over video is playing.");
+// };
+// video.onerror = () => {
+//   console.error("❌ Error loading Game Over video.");
+// };
 
 //     // Check if player won
 //     //if the player got all the letters and it has shown correctly it
@@ -208,22 +208,19 @@
 //     startGame();
 //   });
 // });
+
 // ===== Game State Variables =====
-let clue = 0;                        // Index to track the current level
-let wrongLetters = [];              // Store letters the user guessed wrong
-let correctLetters = [];            // Store letters guessed correctly
-let blanks;                         // Container for blank spans
-let chosenWord;                     // Word selected for current level
-let splitWord;                      // The selected word split into an array of letters
-let blankSpaces = [];               // Array to hold span elements representing blanks
-let maxAttempts = 7;                // Max number of allowed incorrect guesses
+let clue = 0;                        
+let wrongLetters = [];              
+let correctLetters = [];            
+let blanks;                         
+let chosenWord;                     
+let splitWord;                      
+let blankSpaces = [];               
+let maxAttempts = 7;                
 
 // ===== Sound Effects Setup =====
-const clickSound = new Audio("appleCrash.mp3");  // Play when a button is clicked
-const correctSound = new Audio("correct.mp3");   // Play when guess is correct
-const wrongSound = new Audio("wrong.mp3");       // Play when guess is wrong
-const winSound = new Audio("win.mp3");           // Play when player wins
-const loseSound = new Audio("lose.mp3");         // Play when player loses
+const clickSound = new Audio("appleCrash.mp3");  // Click sound
 
 // ===== Game Levels & Clues =====
 let levels = [
@@ -261,6 +258,7 @@ function startGame() {
   document.getElementById("gameOverContainer").style.display = "none";
   document.getElementById("win-caption").style.display = "none";
   document.getElementById("retry-btn").style.display = "none";
+
   document.getElementById("health-bar").style.width = "100%";
 
   const buttons = document.querySelectorAll("#letters-container button");
@@ -279,8 +277,6 @@ function handleGuess(event) {
   clickSound.play();
 
   if (splitWord.includes(letter)) {
-    correctSound.play();
-
     splitWord.forEach((l, i) => {
       if (l === letter) {
         blankSpaces[i].innerText = letter;
@@ -295,13 +291,10 @@ function handleGuess(event) {
       document.getElementById("winVideo").currentTime = 0;
       document.getElementById("winVideo").play();
       document.getElementById("win-caption").style.display = "block";
-      winSound.play();
       disableAllButtons();
     }
 
   } else {
-    wrongSound.play();
-
     if (!wrongLetters.includes(letter)) {
       wrongLetters.push(letter);
       updateHealth();
@@ -316,7 +309,9 @@ function handleGuess(event) {
         gameOverVideo.play();
 
         document.getElementById("retry-btn").style.display = "block";
+
         loseSound.play();
+
         disableAllButtons();
       }
     }
