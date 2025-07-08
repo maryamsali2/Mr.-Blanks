@@ -1,4 +1,5 @@
 // ===== Game State Variables =====
+//the things that going to change at the game 
 let clue = 0;                        // Index to track the current level
 let wrongLetters = [];              // Store letters the user guessed wrong
 let correctLetters = [];            // Store letters guessed correctly
@@ -9,6 +10,7 @@ let blankSpaces = [];               // Array to hold span elements representing 
 let maxAttempts = 7;                // Max number of allowed incorrect guesses
 
 // ===== Sound Effects Setup =====
+//sounds files
 const clickSound = new Audio("appleCrash.mp3");  // Play when a button is clicked
 const correctSound = new Audio("correct.mp3");   // Play when guess is correct
 const wrongSound = new Audio("wrong.mp3");       // Play when guess is wrong
@@ -35,8 +37,12 @@ video.onerror = () => {
   console.error("❌ Error loading Game Over video.");
 };
 // ===== Game Initialization =====
+//it shows the clue 
+//the blanks is on the letters  number
+//hide every thing that is releated for winning or game over 
 function startGame() {
   // Reset all game state
+  //reset the blanks so 
   correctLetters = [];
   wrongLetters = [];
   blankSpaces = [];
@@ -76,6 +82,9 @@ function startGame() {
 }
 
 // ===== Handle a Letter Button Press =====
+//the letter that the player click on it 
+//the letter cannot be clicked it twice 
+//on every time u click on the letter or button there is a sound played
 function handleGuess(event) {
   const letter = event.target.innerText;
   event.target.disabled = true;
@@ -85,6 +94,7 @@ function handleGuess(event) {
   clickSound.play();
 
   // ✅ Correct Guess
+  //shows the letter in there place on the blancks
   if (splitWord.includes(letter)) {
     correctSound.play();
 
@@ -104,6 +114,9 @@ video.onerror = () => {
 };
 
     // Check if player won
+    //if the player got all the letters and it has shown correctly it
+    //shows video 
+    //and the user cant press the button 
     const uniqueCorrect = [...new Set(correctLetters)];
     const uniqueWord = [...new Set(splitWord)];
     if (uniqueCorrect.length === uniqueWord.length) {
@@ -115,7 +128,9 @@ video.onerror = () => {
       winSound.play();
       disableAllButtons();
     }
-
+//else if the user fails
+//it shown the gameover video 
+//AND THE HEALTH BAR GET DOWN LIKE FROM 80-75
   } else {
     // ❌ Wrong Guess
     wrongSound.play();
@@ -125,6 +140,11 @@ video.onerror = () => {
       updateHealth();
 
       // 💀 Game Over Condition
+      //IF THE PLAYER FAILS
+      //IN THIS IF STATMENT 
+      //I HIDE THE VIDEO OF WINNING OR FAILING 
+      //SHOWN THE LOSING SOUND OR THE VIDEO WHEN THE USER GET IT WRONG 
+      //SHOWS THE PLAY AGAIN VIDEO 
       if (wrongLetters.length === maxAttempts) {
         // Hide win UI if showing
         document.getElementById("videoContainer").style.display = "none";
@@ -137,6 +157,7 @@ video.onerror = () => {
         gameOverVideo.play();
 
         // Show retry button
+        //IT SHOWS THE BUTTON WHEN U CLICK ON IT AND GOES TO ANOTHER LEVEL
         document.getElementById("retry-btn").style.display = "block";
 
         // 🔊 Play lose sound
@@ -168,9 +189,11 @@ function disableAllButtons() {
 }
 
 // ===== Run Game on Page Load =====
+//WHEN THE PAGE OPENS  THE GAME START AGAIN
+//ALL THE KEYBOARD BUTTONS IS ACTIVATED AND U CAN CLICK ON IT
 window.addEventListener("DOMContentLoaded", () => {
   startGame(); // Initialize game when page loads
-
+//its when u click a button it works
   // Add event listeners for each keyboard button
   const buttons = document.querySelectorAll("#letters-container button");
   buttons.forEach((btn) => {
@@ -178,6 +201,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   // 🔁 Restart game when clicking retry
+  //IT SHOWS THE BUTTON WHEN U CLICK ON IT AND GOES TO ANOTHER LEVEL
   document.getElementById("retry-btn").addEventListener("click", () => {
     clue++;
     if (clue >= levels.length) clue = 0;
