@@ -4,7 +4,7 @@
 
 ### By: Maryam Salah
 
-#### [Website](https://michaellackey.com/) | [GitHub](https://github.com/NobodysLackey) | [LinkedIn](https://www.linkedin.com/in/michaelglackey/)
+#### [Website of the game ]() || [sounds](https://www.linkedin.com/in/michaelglackey/)
 ***
 
 ### ***Description***
@@ -13,25 +13,22 @@
 
 Mr. Blanks is in danger — and only you can save him!
 
-Each round, you’ll see a mysterious clue that describes a hidden word.
-Your mission is to guess the word letter by letter, using the clue to guide you.You have 7 chances to guess wrong.Each incorrect letter brings Mr. Blanks one step closer to being hanged.Guess all the letters correctly before the 7th mistake… and Mr. Blanks lives!But if you fail… well, you know what happens. 💀
+Your mission is to guess the hidden word, one letter at a time — using the changing clue to guide you.
+You have 7 chances to guess wrong.Each incorrect letter turns red and drains your health bar.
+Guess all the letters correctly before the 7th mistake… and you’ll save Mr. Blanks! But if you fail… well, Mr. Blanks is doomed — and you’ll see what happens. 💀🎬
+
+
 
 ***
 ### ***Pseudo-code***
-- Starts the game	Game: shows a clue and blanks for the word
+🕹 How to Save Mr. Blanks
+😰 Poor Mr. Blank is in trouble!
 
--Enters a correct letter: 	The letter is revealed in the correct position(s) in the word
-
-- Enters a wrong letter	: Every time you make a mistake, the letter turns red, and one part of Mr. Blanks is drawn: first his head, then his body, followed by his right arm, left arm, right leg, left leg — and on the seventh mistake, his eyes are drawn… and he's dead.
-
-- Repeats a guessed letter	Warning is shown: "You already guessed that!"
-
-- Guesses all letters	Game ends with a win message: "You saved Mr. Blanks!"
-
--Makes 7 wrong guesses	Game ends with a lose message: "Mr. Blanks is gone..."
-- Clicks "Play Again"	A new game round begins with a new word and clue
-
-
+- 🕵️‍♂️ A mysterious clue hides a secret word... and you must guess it letter by letter. ✉️🔤
+ - ❌ Wrong guesses will turn red and reduce your health bar.
+- 🧍 Each mistake brings Mr. Blanks closer to doom.
+- ✅ Guess all letters correctly before it’s too late…
+- 🎉 Win or lose... there’s a surprise waiting at the end! 👀
 
 ### ***Technologies Used***
 - HTML
@@ -48,7 +45,8 @@ Your mission is to guess the word letter by letter, using the clue to guide you.
 ### ***Screenshots***
 
 ###
-![Image](project-outline.png)
+![wlcPage](welcome.png)
+![game](game.png)
 
 ***
 
