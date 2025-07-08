@@ -1,0 +1,60 @@
+/* === First Page Styling === */
+
+h1 {
+  font-size: 48px;
+  margin-top: 40px;
+  color: #2d3436;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+}
+
+#how-to-play {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-width: 700px;
+  margin-top: 40px;
+}
+
+#how-to-play h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #6c5ce7;
+}
+
+#how-to-play ul {
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+}
+
+#how-to-play li {
+  margin-bottom: 12px;
+  padding-left: 10px;
+}
+
+.start-button {
+  margin-top: 50px;
+}
+
+.start-button a {
+  font-size: 20px;
+  padding: 14px 26px;
+  background-color: #6c5ce7;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.start-button a:hover {
+  background-color: #5e54c7;
+  transform: scale(1.05);
+}
+
+body {
+  background-color: #98bef8; /* soft light blue-gray */
+}
