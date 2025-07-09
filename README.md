@@ -4,7 +4,7 @@
 
 ### By: Maryam Salah
 
-#### [Website of the game ]() || [sounds](https://www.linkedin.com/in/michaelglackey/)
+#### [Website of the game ](https://mr-blanks.surge.sh/projectP2.html) || [sounds](https://www.101soundboards.com/boards/195521-crash-bandicoot-soundboard?utm_source=chatgpt.com#google_vignette)
 ***
 
 ### ***Description***
